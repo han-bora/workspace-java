@@ -1,0 +1,10 @@
+package kr.co.himedia.miniproject.utils;
+
+public class Constant {
+	
+	public static final int KOREAN = 1001;
+	public static final int MATH = 1002;
+	
+	
+
+}

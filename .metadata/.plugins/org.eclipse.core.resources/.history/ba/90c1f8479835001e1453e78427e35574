@@ -1,0 +1,45 @@
+package kr.co.himedia.builder02;
+
+import java.util.EnumSet;
+import java.util.Objects;
+import java.util.Set;
+
+import kr.co.himedia.builder02.NyPizza.Size;
+import kr.co.himedia.builder02.Pizza.Builder;
+
+public abstract class Pizza {
+	
+	public enum Topping {
+		HAM, ONION, PEPPER, SAUSAGE, MUSHROOM, 
+		
+	}
+	
+	final Set<Topping> toppings;
+	
+	public Pizza(Size size) {
+		this.toppings = Builder.toppings.clone();		
+	}
+	
+	abstract static class Builder {
+		static EnumSet<Topping> toppings = EnumSet.noneOf(Topping.class);
+		protected abstract kr.co.himedia.builder02.NyPizza.Builder self();
+		public NyPizza addTopping(Topping topping) {
+			toppings.add(Objects.requireNonNull(topping));
+			return self();
+			
+		}
+		
+		public NyPizza sauceInside() {
+			return self();
+			
+		}
+		
+		abstract Pizza build(); 
+	}
+	
+	
+	@Override
+	public String toString() {
+		return toppings.toString();
+	}
+}

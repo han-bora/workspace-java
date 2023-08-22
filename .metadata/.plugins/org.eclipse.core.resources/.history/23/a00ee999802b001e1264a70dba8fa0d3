@@ -1,0 +1,10 @@
+package kr.co.himedia.list;
+
+public class Member {
+	
+	private int memberId;
+	private string memberName;
+	
+	
+
+}
